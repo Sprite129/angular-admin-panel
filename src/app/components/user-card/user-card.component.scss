@@ -1,0 +1,28 @@
+.user-card {
+    display: grid;
+    grid-template-rows: 1fr 0.5fr 2fr;
+    text-align: center;
+    box-sizing: border-box;
+    width: min(20%, 215px);
+    aspect-ratio: 0.7;
+    border-radius: 20px;
+    box-shadow: 0px 3px 15px 1px black;
+
+    span {
+        padding: 20px;
+        align-content: center;
+
+        &:first-child {
+            border-radius: 20px;
+        }
+
+        &:nth-child(2) {
+            text-decoration: underline;
+            padding-bottom: 0;
+        }
+    }
+}
+
+.status {
+    background-color: orange;
+}

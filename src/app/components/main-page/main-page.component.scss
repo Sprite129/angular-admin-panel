@@ -1,0 +1,59 @@
+@mixin centeredFlexWMargin {
+    display: flex;
+    margin: min(3%, 25px) auto;
+    align-items: center;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1920px;
+}
+
+img {
+    max-width: 15px;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    padding: 3px;
+}
+
+.filters-container {
+    @include centeredFlexWMargin;
+
+    width: fit-content;
+
+    button {
+        margin: 0 0 0 5%;
+    }
+}
+
+.users-list {
+    width: min(100%, 1000px);
+    padding: 0;
+    margin: 0 auto;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    justify-items: center;
+}
+
+.page-controls {
+    @include centeredFlexWMargin;
+
+    width: min(80%, 800px);
+    justify-content: space-between;
+
+    img {
+        max-width: 25px;
+    }
+
+    button:first-child {
+        img {
+            transform: scaleX(-1);
+        }
+    }
+}

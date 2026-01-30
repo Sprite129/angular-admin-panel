@@ -8,5 +8,6 @@
         <span class="status" [class]="getColor()">{{user()?.status}}</span>
         <span class="name">{{user()?.name}}</span>
         <span class="last-info">{{ user()?.info?.at(-1) | slice: 0: 150}}...</span>
+        <button>Edit data</button>
     }
 </div>

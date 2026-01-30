@@ -16,7 +16,7 @@ export class App {
   id: 1,
   name: "John Doe",
   dateOfBirth: new Date("1990-05-15"),
-  info: ["Verified", "Premium member"],
+  info: ["Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis eius, fugiat veritatis nesciunt mollitia odio temporibus corporis nostrum consequatur? Quas.", "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque ducimus dolorem rerum soluta ad quis beatae iure distinctio repellat sed maxime harum maiores delectus labore, repudiandae id adipisci? Expedita, aut."],
   status: Status.ACTIVE,
   debt: 0,
   address: "123 Main St, Springfield",

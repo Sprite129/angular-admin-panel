@@ -20,6 +20,10 @@
             text-decoration: underline;
             padding-bottom: 0;
         }
+
+        &:last-child {
+            align-content: start;
+        }
     }
 }
 

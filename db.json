@@ -1,0 +1,1025 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "dateOfBirth": "1975-01-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Client confirmed receipt of the invoice and stated that the payment is scheduled to be processed within the next business days. Monitoring recommended until funds are received."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "100 Market Street, City 1",
+      "contacts": [
+        "user1@example.com",
+        "+1-555-1000"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Anna Smith",
+      "dateOfBirth": "1976-02-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "101 Market Street, City 2",
+      "contacts": [
+        "user2@example.com",
+        "+1-555-1001"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Michael Brown",
+      "dateOfBirth": "1977-03-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Client confirmed receipt of the invoice and stated that the payment is scheduled to be processed within the next business days. Monitoring recommended until funds are received."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "102 Market Street, City 3",
+      "contacts": [
+        "user3@example.com",
+        "+1-555-1002"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Emily Johnson",
+      "dateOfBirth": "1978-04-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "103 Market Street, City 4",
+      "contacts": [
+        "user4@example.com",
+        "+1-555-1003"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Daniel Carter",
+      "dateOfBirth": "1979-05-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Client confirmed receipt of the invoice and stated that the payment is scheduled to be processed within the next business days. Monitoring recommended until funds are received."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "104 Market Street, City 5",
+      "contacts": [
+        "user5@example.com",
+        "+1-555-1004"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Sophia Martinez",
+      "dateOfBirth": "1980-06-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Payment was successfully received in full. Account returned to active status with no remaining balance."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "105 Market Street, City 6",
+      "contacts": [
+        "user6@example.com",
+        "+1-555-1005"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "James Wilson",
+      "dateOfBirth": "1981-07-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Payment was successfully received in full. Account returned to active status with no remaining balance."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "106 Market Street, City 7",
+      "contacts": [
+        "user7@example.com",
+        "+1-555-1006"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Olivia Taylor",
+      "dateOfBirth": "1982-08-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Payment was successfully received in full. Account returned to active status with no remaining balance."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "107 Market Street, City 8",
+      "contacts": [
+        "user8@example.com",
+        "+1-555-1007"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Liam Anderson",
+      "dateOfBirth": "1983-09-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Client confirmed receipt of the invoice and stated that the payment is scheduled to be processed within the next business days. Monitoring recommended until funds are received."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "108 Market Street, City 9",
+      "contacts": [
+        "user9@example.com",
+        "+1-555-1008"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Emma Thomas",
+      "dateOfBirth": "1984-01-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Account reviewed during monthly status check. No significant changes observed."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "109 Market Street, City 10",
+      "contacts": [
+        "user10@example.com",
+        "+1-555-1009"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Noah Harris",
+      "dateOfBirth": "1985-02-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Payment was successfully received in full. Account returned to active status with no remaining balance."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "110 Market Street, City 1",
+      "contacts": [
+        "user11@example.com",
+        "+1-555-1010"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Ava Clark",
+      "dateOfBirth": "1986-03-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Account reviewed during monthly status check. No significant changes observed."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "111 Market Street, City 2",
+      "contacts": [
+        "user12@example.com",
+        "+1-555-1011"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "William Lewis",
+      "dateOfBirth": "1987-04-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Payment was successfully received in full. Account returned to active status with no remaining balance."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "112 Market Street, City 3",
+      "contacts": [
+        "user13@example.com",
+        "+1-555-1012"
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Mia Walker",
+      "dateOfBirth": "1988-05-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Client confirmed receipt of the invoice and stated that the payment is scheduled to be processed within the next business days. Monitoring recommended until funds are received."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "113 Market Street, City 4",
+      "contacts": [
+        "user14@example.com",
+        "+1-555-1013"
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Benjamin Hall",
+      "dateOfBirth": "1989-06-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Payment was successfully received in full. Account returned to active status with no remaining balance."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "114 Market Street, City 5",
+      "contacts": [
+        "user15@example.com",
+        "+1-555-1014"
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Charlotte Young",
+      "dateOfBirth": "1990-07-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "115 Market Street, City 6",
+      "contacts": [
+        "user16@example.com",
+        "+1-555-1015"
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Lucas King",
+      "dateOfBirth": "1991-08-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Account reviewed during monthly status check. No significant changes observed."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "116 Market Street, City 7",
+      "contacts": [
+        "user17@example.com",
+        "+1-555-1016"
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Amelia Wright",
+      "dateOfBirth": "1992-09-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "117 Market Street, City 8",
+      "contacts": [
+        "user18@example.com",
+        "+1-555-1017"
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Henry Lopez",
+      "dateOfBirth": "1993-01-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Internal audit completed. All documentation associated with the account is properly stored and up to date."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "118 Market Street, City 9",
+      "contacts": [
+        "user19@example.com",
+        "+1-555-1018"
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Evelyn Hill",
+      "dateOfBirth": "1994-02-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Internal audit completed. All documentation associated with the account is properly stored and up to date."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "119 Market Street, City 10",
+      "contacts": [
+        "user20@example.com",
+        "+1-555-1019"
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Alexander Scott",
+      "dateOfBirth": "1995-03-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "120 Market Street, City 1",
+      "contacts": [
+        "user21@example.com",
+        "+1-555-1020"
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Abigail Green",
+      "dateOfBirth": "1996-04-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Client confirmed receipt of the invoice and stated that the payment is scheduled to be processed within the next business days. Monitoring recommended until funds are received."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "121 Market Street, City 2",
+      "contacts": [
+        "user22@example.com",
+        "+1-555-1021"
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Matthew Adams",
+      "dateOfBirth": "1997-05-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Account reviewed during monthly status check. No significant changes observed."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "122 Market Street, City 3",
+      "contacts": [
+        "user23@example.com",
+        "+1-555-1022"
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Harper Baker",
+      "dateOfBirth": "1998-06-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Account reviewed during monthly status check. No significant changes observed."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "123 Market Street, City 4",
+      "contacts": [
+        "user24@example.com",
+        "+1-555-1023"
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Samuel Nelson",
+      "dateOfBirth": "1999-07-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Client confirmed receipt of the invoice and stated that the payment is scheduled to be processed within the next business days. Monitoring recommended until funds are received."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "124 Market Street, City 5",
+      "contacts": [
+        "user25@example.com",
+        "+1-555-1024"
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Ella Carter",
+      "dateOfBirth": "1975-08-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Account reviewed during monthly status check. No significant changes observed."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "125 Market Street, City 6",
+      "contacts": [
+        "user26@example.com",
+        "+1-555-1025"
+      ]
+    },
+    {
+      "id": 27,
+      "name": "David Mitchell",
+      "dateOfBirth": "1976-09-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Client confirmed receipt of the invoice and stated that the payment is scheduled to be processed within the next business days. Monitoring recommended until funds are received."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "126 Market Street, City 7",
+      "contacts": [
+        "user27@example.com",
+        "+1-555-1026"
+      ]
+    },
+    {
+      "id": 28,
+      "name": "Luna Perez",
+      "dateOfBirth": "1977-01-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Internal audit completed. All documentation associated with the account is properly stored and up to date."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "127 Market Street, City 8",
+      "contacts": [
+        "user28@example.com",
+        "+1-555-1027"
+      ]
+    },
+    {
+      "id": 29,
+      "name": "Joseph Roberts",
+      "dateOfBirth": "1978-02-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Reminder sent regarding upcoming payment deadline. Awaiting confirmation from the client."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "128 Market Street, City 9",
+      "contacts": [
+        "user29@example.com",
+        "+1-555-1028"
+      ]
+    },
+    {
+      "id": 30,
+      "name": "Grace Turner",
+      "dateOfBirth": "1979-03-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Account reviewed during monthly status check. No significant changes observed."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "129 Market Street, City 10",
+      "contacts": [
+        "user30@example.com",
+        "+1-555-1029"
+      ]
+    },
+    {
+      "id": 31,
+      "name": "Andrew Phillips",
+      "dateOfBirth": "1980-04-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Client confirmed receipt of the invoice and stated that the payment is scheduled to be processed within the next business days. Monitoring recommended until funds are received."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "130 Market Street, City 1",
+      "contacts": [
+        "user31@example.com",
+        "+1-555-1030"
+      ]
+    },
+    {
+      "id": 32,
+      "name": "Chloe Campbell",
+      "dateOfBirth": "1981-05-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Internal audit completed. All documentation associated with the account is properly stored and up to date."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "131 Market Street, City 2",
+      "contacts": [
+        "user32@example.com",
+        "+1-555-1031"
+      ]
+    },
+    {
+      "id": 33,
+      "name": "Ryan Parker",
+      "dateOfBirth": "1982-06-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Account reviewed during monthly status check. No significant changes observed.",
+        "Internal audit completed. All documentation associated with the account is properly stored and up to date."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "132 Market Street, City 3",
+      "contacts": [
+        "user33@example.com",
+        "+1-555-1032"
+      ]
+    },
+    {
+      "id": 34,
+      "name": "Zoe Evans",
+      "dateOfBirth": "1983-07-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Account reviewed during monthly status check. No significant changes observed."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "133 Market Street, City 4",
+      "contacts": [
+        "user34@example.com",
+        "+1-555-1033"
+      ]
+    },
+    {
+      "id": 35,
+      "name": "Nathan Edwards",
+      "dateOfBirth": "1984-08-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Client maintained regular contact and demonstrated cooperative behavior throughout the review period."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "134 Market Street, City 5",
+      "contacts": [
+        "user35@example.com",
+        "+1-555-1034"
+      ]
+    },
+    {
+      "id": 36,
+      "name": "Hannah Collins",
+      "dateOfBirth": "1985-09-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Client maintained regular contact and demonstrated cooperative behavior throughout the review period."
+      ],
+      "status": "Active",
+      "debt": 0,
+      "address": "135 Market Street, City 6",
+      "contacts": [
+        "user36@example.com",
+        "+1-555-1035"
+      ]
+    },
+    {
+      "id": 37,
+      "name": "Robert King",
+      "dateOfBirth": "1986-01-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Client confirmed receipt of the invoice and stated that the payment is scheduled to be processed within the next business days. Monitoring recommended until funds are received.",
+        "Multiple contact attempts were made via email and phone. No response was received within the defined timeframe. Account flagged for further review."
+      ],
+      "status": "Debtor",
+      "debt": 740,
+      "address": "136 Market Street, City 7",
+      "contacts": [
+        "user37@example.com",
+        "+1-555-1036"
+      ]
+    },
+    {
+      "id": 38,
+      "name": "Laura Bennett",
+      "dateOfBirth": "1987-02-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Client proactively reached out to request an extension of the payment deadline. Reason provided was a delay in incoming funds from a third party."
+      ],
+      "status": "Debtor",
+      "debt": 755,
+      "address": "137 Market Street, City 8",
+      "contacts": [
+        "user38@example.com",
+        "+1-555-1037"
+      ]
+    },
+    {
+      "id": 39,
+      "name": "Thomas Anderson",
+      "dateOfBirth": "1988-03-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Client proactively reached out to request an extension of the payment deadline. Reason provided was a delay in incoming funds from a third party."
+      ],
+      "status": "Debtor",
+      "debt": 770,
+      "address": "138 Market Street, City 9",
+      "contacts": [
+        "user39@example.com",
+        "+1-555-1038"
+      ]
+    },
+    {
+      "id": 40,
+      "name": "Natalie Foster",
+      "dateOfBirth": "1989-04-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Multiple contact attempts were made via email and phone. No response was received within the defined timeframe. Account flagged for further review.",
+        "Client proactively reached out to request an extension of the payment deadline. Reason provided was a delay in incoming funds from a third party.",
+        "Account marked for monitoring due to repeated payment delays, despite ongoing communication with the client."
+      ],
+      "status": "Debtor",
+      "debt": 785,
+      "address": "139 Market Street, City 10",
+      "contacts": [
+        "user40@example.com",
+        "+1-555-1039"
+      ]
+    },
+    {
+      "id": 41,
+      "name": "Kevin Morgan",
+      "dateOfBirth": "1990-05-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Client proactively reached out to request an extension of the payment deadline. Reason provided was a delay in incoming funds from a third party."
+      ],
+      "status": "Debtor",
+      "debt": 800,
+      "address": "140 Market Street, City 1",
+      "contacts": [
+        "user41@example.com",
+        "+1-555-1040"
+      ]
+    },
+    {
+      "id": 42,
+      "name": "Isabella Reed",
+      "dateOfBirth": "1991-06-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Multiple contact attempts were made via email and phone. No response was received within the defined timeframe. Account flagged for further review."
+      ],
+      "status": "Debtor",
+      "debt": 815,
+      "address": "141 Market Street, City 2",
+      "contacts": [
+        "user42@example.com",
+        "+1-555-1041"
+      ]
+    },
+    {
+      "id": 43,
+      "name": "Brian Cook",
+      "dateOfBirth": "1992-07-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Client proactively reached out to request an extension of the payment deadline. Reason provided was a delay in incoming funds from a third party."
+      ],
+      "status": "Debtor",
+      "debt": 830,
+      "address": "142 Market Street, City 3",
+      "contacts": [
+        "user43@example.com",
+        "+1-555-1042"
+      ]
+    },
+    {
+      "id": 44,
+      "name": "Sofia Rogers",
+      "dateOfBirth": "1993-08-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Account marked for monitoring due to repeated payment delays, despite ongoing communication with the client."
+      ],
+      "status": "Debtor",
+      "debt": 845,
+      "address": "143 Market Street, City 4",
+      "contacts": [
+        "user44@example.com",
+        "+1-555-1043"
+      ]
+    },
+    {
+      "id": 45,
+      "name": "Justin Murphy",
+      "dateOfBirth": "1994-09-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Multiple contact attempts were made via email and phone. No response was received within the defined timeframe. Account flagged for further review.",
+        "Client proactively reached out to request an extension of the payment deadline. Reason provided was a delay in incoming funds from a third party."
+      ],
+      "status": "Debtor",
+      "debt": 860,
+      "address": "144 Market Street, City 5",
+      "contacts": [
+        "user45@example.com",
+        "+1-555-1044"
+      ]
+    },
+    {
+      "id": 46,
+      "name": "Victoria Bailey",
+      "dateOfBirth": "1995-01-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Account marked for monitoring due to repeated payment delays, despite ongoing communication with the client."
+      ],
+      "status": "Debtor",
+      "debt": 875,
+      "address": "145 Market Street, City 6",
+      "contacts": [
+        "user46@example.com",
+        "+1-555-1045"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Eric Rivera",
+      "dateOfBirth": "1996-02-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Account marked for monitoring due to repeated payment delays, despite ongoing communication with the client."
+      ],
+      "status": "Debtor",
+      "debt": 890,
+      "address": "146 Market Street, City 7",
+      "contacts": [
+        "user47@example.com",
+        "+1-555-1046"
+      ]
+    },
+    {
+      "id": 48,
+      "name": "Madison Cooper",
+      "dateOfBirth": "1997-03-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Client stated intention to settle the balance in multiple installments. No formal repayment schedule has been signed yet."
+      ],
+      "status": "Debtor",
+      "debt": 905,
+      "address": "147 Market Street, City 8",
+      "contacts": [
+        "user48@example.com",
+        "+1-555-1047"
+      ]
+    },
+    {
+      "id": 49,
+      "name": "Kyle Richardson",
+      "dateOfBirth": "1998-04-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Client stated intention to settle the balance in multiple installments. No formal repayment schedule has been signed yet."
+      ],
+      "status": "Debtor",
+      "debt": 920,
+      "address": "148 Market Street, City 9",
+      "contacts": [
+        "user49@example.com",
+        "+1-555-1048"
+      ]
+    },
+    {
+      "id": 50,
+      "name": "Aria Cox",
+      "dateOfBirth": "1999-05-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Reminder sent regarding upcoming payment deadline. Awaiting confirmation from the client."
+      ],
+      "status": "Debtor",
+      "debt": 935,
+      "address": "149 Market Street, City 10",
+      "contacts": [
+        "user50@example.com",
+        "+1-555-1049"
+      ]
+    },
+    {
+      "id": 51,
+      "name": "Steven Howard",
+      "dateOfBirth": "1975-06-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Client proactively reached out to request an extension of the payment deadline. Reason provided was a delay in incoming funds from a third party.",
+        "Client stated intention to settle the balance in multiple installments. No formal repayment schedule has been signed yet."
+      ],
+      "status": "Debtor",
+      "debt": 950,
+      "address": "150 Market Street, City 1",
+      "contacts": [
+        "user51@example.com",
+        "+1-555-1050"
+      ]
+    },
+    {
+      "id": 52,
+      "name": "Layla Ward",
+      "dateOfBirth": "1976-07-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Account status adjusted in accordance with internal policy after review."
+      ],
+      "status": "Expired",
+      "debt": 1420,
+      "address": "151 Market Street, City 2",
+      "contacts": [
+        "user52@example.com",
+        "+1-555-1051"
+      ]
+    },
+    {
+      "id": 53,
+      "name": "Patrick Brooks",
+      "dateOfBirth": "1977-08-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Account status adjusted in accordance with internal policy after review."
+      ],
+      "status": "Expired",
+      "debt": 1440,
+      "address": "152 Market Street, City 3",
+      "contacts": [
+        "user53@example.com",
+        "+1-555-1052"
+      ]
+    },
+    {
+      "id": 54,
+      "name": "Nora Diaz",
+      "dateOfBirth": "1978-09-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Account status adjusted in accordance with internal policy after review."
+      ],
+      "status": "Expired",
+      "debt": 1460,
+      "address": "153 Market Street, City 4",
+      "contacts": [
+        "user54@example.com",
+        "+1-555-1053"
+      ]
+    },
+    {
+      "id": 55,
+      "name": "Jason Wood",
+      "dateOfBirth": "1979-01-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Account closed after final review due to unresolved balance and lack of communication."
+      ],
+      "status": "Expired",
+      "debt": 1480,
+      "address": "154 Market Street, City 5",
+      "contacts": [
+        "user55@example.com",
+        "+1-555-1054"
+      ]
+    },
+    {
+      "id": 56,
+      "name": "Penelope Watson",
+      "dateOfBirth": "1980-02-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Account closed after final review due to unresolved balance and lack of communication."
+      ],
+      "status": "Expired",
+      "debt": 1500,
+      "address": "155 Market Street, City 6",
+      "contacts": [
+        "user56@example.com",
+        "+1-555-1055"
+      ]
+    },
+    {
+      "id": 57,
+      "name": "Mark Kelly",
+      "dateOfBirth": "1981-03-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Account closed after final review due to unresolved balance and lack of communication."
+      ],
+      "status": "Expired",
+      "debt": 1520,
+      "address": "156 Market Street, City 7",
+      "contacts": [
+        "user57@example.com",
+        "+1-555-1056"
+      ]
+    },
+    {
+      "id": 58,
+      "name": "Ivy Price",
+      "dateOfBirth": "1982-04-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Account closed after final review due to unresolved balance and lack of communication."
+      ],
+      "status": "Expired",
+      "debt": 1540,
+      "address": "157 Market Street, City 8",
+      "contacts": [
+        "user58@example.com",
+        "+1-555-1057"
+      ]
+    },
+    {
+      "id": 59,
+      "name": "Chris Sanders",
+      "dateOfBirth": "1983-05-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Account classified as expired after exceeding the maximum allowed inactivity period without successful contact."
+      ],
+      "status": "Expired",
+      "debt": 1560,
+      "address": "158 Market Street, City 9",
+      "contacts": [
+        "user59@example.com",
+        "+1-555-1058"
+      ]
+    },
+    {
+      "id": 60,
+      "name": "Lucy Barnes",
+      "dateOfBirth": "1984-06-15",
+      "info": [
+        "Client was contacted regarding account status. Communication was professional and constructive, with clear acknowledgment of the current situation and future expectations.",
+        "Follow-up notes indicate that the client understands contractual obligations and either maintains good standing or has been informed of the consequences of non-payment.",
+        "Account classified as expired after exceeding the maximum allowed inactivity period without successful contact."
+      ],
+      "status": "Expired",
+      "debt": 1580,
+      "address": "159 Market Street, City 10",
+      "contacts": [
+        "user60@example.com",
+        "+1-555-1059"
+      ]
+    }
+  ]
+}

@@ -14,9 +14,9 @@ export class UserCard {
   
   getColor() {
     if (this.user()) {
-      if (this.user()?.status == Status.ACTIVE) return "orange";
-      if (this.user()?.status == Status.EXPIRED) return "green";
+      if (this.user()?.status == Status.ACTIVE) return "green";
+      if (this.user()?.status == Status.EXPIRED) return "red";
     }
-    return "red";
+    return "orange";
   }
 }

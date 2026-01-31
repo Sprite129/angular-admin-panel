@@ -75,7 +75,10 @@ export class UsersAPI {
           return;
         const usersContainName = users.filter(user => user.name.includes(name))
         const arrayPage = (page - 1) * this.usersPerPage;
-        return usersContainName.slice(arrayPage, arrayPage + this.usersPerPage)
+        const returnedUsersArray = usersContainName.slice(arrayPage, arrayPage + this.usersPerPage)
+        if(!returnedUsersArray.length)
+          return;
+        return returnedUsersArray;
       })
     )
   }

@@ -1,8 +1,8 @@
 <div class="container">
     <nav class="filters-container">
-        <input type="text">
-        <button><img src="/sort-up.svg"></button>
-        <button><img src="/sort-down.svg"></button>
+        <input type="text" (input)="onInput($event)">
+        <button (click)="onSortByHighest()"><img src="/sort-up.svg"></button>
+        <button (click)="onSortByLowest()"><img src="/sort-down.svg"></button>
     </nav>
     <ul class="users-list">
         @if(!users()) {
@@ -15,7 +15,7 @@
         }
     </ul>
     <nav class="page-controls">
-        <button><img src="/next-page.svg"></button>
-        <button><img src="/next-page.svg"></button>
+        <button (click)="onPrevPage()"><img src="/next-page.svg"></button>
+        <button (click)="onNextPage()"><img src="/next-page.svg"></button>
     </nav>
 </div>

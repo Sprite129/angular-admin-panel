@@ -1,0 +1,74 @@
+.container {
+    margin: 0 auto;
+    max-width: 1920px;
+}
+
+.user-form {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0px 5px 20px black;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 25px;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+  align-items: center;
+  overflow: hidden;
+
+  .status {
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 20px;
+  }
+
+  .name {
+    padding: 20px;
+    font-size: 1.4rem;
+    text-decoration: underline;
+  }
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    input, textarea, select {
+      padding: 2%;
+    }
+  }
+
+  .full {
+    grid-column: 1 / -1;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  button {
+    width: 45%;
+    padding: 12px;
+  }
+
+  .edit-button {
+    margin: 0 auto;
+  }
+}
+
+.green { background: green; }
+.orange { background: orange; }
+.red { background: red; }

@@ -5,21 +5,14 @@
         <button><img src="/sort-down.svg"></button>
     </nav>
     <ul class="users-list">
-        <li><app-user-card [user]="exampleUser()" /></li>
-        <li><app-user-card [user]="exampleUser()" /></li>
-        <li><app-user-card [user]="exampleUser()" /></li>
-        <li><app-user-card [user]="exampleUser()" /></li>
-        <li><app-user-card [user]="exampleUser()" /></li>
-        <li><app-user-card [user]="exampleUser()" /></li>
-        <li><app-user-card [user]="exampleUser()" /></li>
-        <li><app-user-card [user]="exampleUser()" /></li>
-        <li><app-user-card [user]="exampleUser()" /></li>
-        <li><app-user-card [user]="exampleUser()" /></li>
-        <li><app-user-card [user]="exampleUser()" /></li>
-        <li><app-user-card [user]="exampleUser()" /></li>
-        <li><app-user-card [user]="exampleUser()" /></li>
-        <li><app-user-card [user]="exampleUser()" /></li>
-        <li><app-user-card [user]="exampleUser()" /></li>
+        @if(!users()) {
+            <li>No users was found</li>
+        }
+        @else {
+            @for (user of users(); track user.id) {
+                <app-user-card [user]="user"></app-user-card>
+            }
+        }
     </ul>
     <nav class="page-controls">
         <button><img src="/next-page.svg"></button>

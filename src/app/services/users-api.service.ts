@@ -2,8 +2,10 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { User } from '../model/user';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { map } from 'rxjs';
+import { map, Subject, switchMap } from 'rxjs';
 import { UserResponse } from '../model/response';
+import { QueryParams } from '../model/queryParams';
+import { SortOptions } from '../model/sortOptions';
 
 @Injectable({
   providedIn: 'root',
@@ -13,16 +15,45 @@ export class UsersAPI {
 
   private url = "http://localhost:3000/users";
 
-  usersPerPage = 10;
+  private query$ = new Subject<QueryParams>();
 
-  getUserPage(page: number) {
+  private response$ = this.query$.pipe(
+    switchMap(query => {
+      if(query.searchName && query.page)
+        return this.getByName(query.searchName, query.page);
+
+      if(query.sortOption == SortOptions.LOWEST && query.page)
+        return this.getUserPageToHighDebt(query.page);
+
+      if(query.sortOption == SortOptions.HIGHEST)
+        return this.getUserPageToLowDebt(query.page);
+
+      return this.getUsersPage(query.page);
+    })
+  );
+
+  getResponse = toSignal(this.response$);
+  
+  usersPerPage: number = 12;
+
+  querySet(page: number, searchName?: string, sortOption?: SortOptions) {
+    const params: QueryParams = {
+      page: page,
+      searchName: searchName ? searchName : undefined,
+      sortOption: sortOption ? sortOption : undefined
+    }
+
+    this.query$.next(params);
+  }
+
+  getUsersPage(page: number) {
     const params = new HttpParams().set(
       "_page", page
     ).set(
       "_per_page", this.usersPerPage
     );
 
-    const request = this.http.get<UserResponse | undefined>(this.url, {params: params}).pipe(
+    return this.http.get<UserResponse | undefined>(this.url, {params: params}).pipe(
       map(response => {
         if(!response)
           return;
@@ -31,8 +62,6 @@ export class UsersAPI {
         return response.data as User[];
       })
     );
-
-    return toSignal(request, {initialValue: []});
   }
 
   getByName(name: string, page: number) {
@@ -40,7 +69,7 @@ export class UsersAPI {
 
     // I can't write a backend right now, so I'll filter by the whole database
     // Terrible for production (bc database may be enormous), but good enough for a quick pet project
-    const request = this.http.get<User[] | undefined>(this.url, {params: params}).pipe( //Couldn't use the same type as in the last method due to json-server returning array of data on get all instead of response-like object
+    return this.http.get<User[] | undefined>(this.url, {params: params}).pipe( //Couldn't use the same type as in the last method due to json-server returning array of data on get all instead of response-like object
       map(users => {
         if(!users)
           return;
@@ -49,8 +78,6 @@ export class UsersAPI {
         return usersContainName.slice(arrayPage, arrayPage + this.usersPerPage)
       })
     )
-
-    return toSignal(request, {initialValue: []})
   }
 
   getUserPageToLowDebt(page: number) {
@@ -64,7 +91,7 @@ export class UsersAPI {
       "_sort", "-debt"
     );
 
-    const request = this.http.get<UserResponse | undefined>(this.url, {params: params}).pipe(
+    return this.http.get<UserResponse | undefined>(this.url, {params: params}).pipe(
       map(response => {
         if(!response)
           return;
@@ -73,8 +100,6 @@ export class UsersAPI {
         return response.data as User[];
       })
     );
-
-    return toSignal(request, {initialValue: []});
   }
 
   getUserPageToHighDebt(page: number) {
@@ -88,7 +113,7 @@ export class UsersAPI {
       "_sort", "debt"
     );
 
-    const request = this.http.get<UserResponse | undefined>(this.url, {params: params}).pipe(
+    return this.http.get<UserResponse | undefined>(this.url, {params: params}).pipe(
       map(response => {
         if(!response)
           return;
@@ -97,7 +122,5 @@ export class UsersAPI {
         return response.data as User[];
       })
     );
-
-    return toSignal(request, {initialValue: []});
   }
 }

@@ -36,11 +36,11 @@ export class UsersAPI {
   
   usersPerPage: number = 12;
 
-  querySet(page: number, searchName?: string, sortOption?: SortOptions) {
+  querySet(page: number, sortOption?: SortOptions, searchName?: string) {
     const params: QueryParams = {
       page: page,
-      searchName: searchName ? searchName : undefined,
-      sortOption: sortOption ? sortOption : undefined
+      sortOption: sortOption ? sortOption : undefined,
+      searchName: searchName ? searchName : undefined
     }
 
     this.query$.next(params);

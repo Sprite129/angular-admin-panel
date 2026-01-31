@@ -21,6 +21,6 @@ export class MainPage implements OnInit{
   users = this.userService.getResponse;
 
   ngOnInit(): void {
-    this.userService.querySet(1, undefined, SortOptions.LOWEST);
+    this.userService.querySet(1, SortOptions.HIGHEST);
   }
 }

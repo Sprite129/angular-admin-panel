@@ -1,7 +1,7 @@
 import { User } from "./user";
 
 export interface UserResponse {
-    data: User[],
+    data: User[] | User,
     first: number,
     items: number,
     last: number,

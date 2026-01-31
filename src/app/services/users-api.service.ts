@@ -17,24 +17,38 @@ export class UsersAPI {
 
   private query$ = new Subject<QueryParams>();
 
+  private idQuery$ = new Subject<number>();
+
   private response$ = this.query$.pipe(
     switchMap(query => {
-      if(query.searchName && query.page)
+      if (query.searchName && query.page)
         return this.getByName(query.searchName, query.page);
 
-      if(query.sortOption == SortOptions.LOWEST && query.page)
+      if (query.sortOption == SortOptions.LOWEST && query.page)
         return this.getUserPageToHighDebt(query.page);
 
-      if(query.sortOption == SortOptions.HIGHEST)
+      if (query.sortOption == SortOptions.HIGHEST)
         return this.getUserPageToLowDebt(query.page);
 
       return this.getUsersPage(query.page);
     })
   );
 
+  private idResponse$ = this.idQuery$.pipe(
+    switchMap(id => {
+      return this.getUserById(id);
+    })
+  )
+
+  getByIdResponse = toSignal(this.idResponse$);
+
   getResponse = toSignal(this.response$);
-  
+
   usersPerPage: number = 12;
+
+  querySetId(id: number) {
+    this.idQuery$.next(id);
+  }
 
   querySet(page: number, sortOption?: SortOptions, searchName?: string) {
     const params: QueryParams = {
@@ -53,11 +67,11 @@ export class UsersAPI {
       "_per_page", this.usersPerPage
     );
 
-    return this.http.get<UserResponse | undefined>(this.url, {params: params}).pipe(
+    return this.http.get<UserResponse | undefined>(this.url, { params: params }).pipe(
       map(response => {
-        if(!response)
+        if (!response)
           return;
-        if(response.last < page)
+        if (response.last < page)
           return;
         return response.data as User[];
       })
@@ -69,14 +83,14 @@ export class UsersAPI {
 
     // I can't write a backend right now, so I'll filter by the whole database
     // Terrible for production (bc database may be enormous), but good enough for a quick pet project
-    return this.http.get<User[] | undefined>(this.url, {params: params}).pipe( //Couldn't use the same type as in the last method due to json-server returning array of data on get all instead of response-like object
+    return this.http.get<User[] | undefined>(this.url, { params: params }).pipe( //Couldn't use the same type as in the last method due to json-server returning array of data on get all instead of response-like object
       map(users => {
-        if(!users)
+        if (!users)
           return;
         const usersContainName = users.filter(user => user.name.includes(name))
         const arrayPage = (page - 1) * this.usersPerPage;
         const returnedUsersArray = usersContainName.slice(arrayPage, arrayPage + this.usersPerPage)
-        if(!returnedUsersArray.length)
+        if (!returnedUsersArray.length)
           return;
         return returnedUsersArray;
       })
@@ -87,18 +101,18 @@ export class UsersAPI {
     const params = new HttpParams().set(
       "_page", page
     )
-    .set(
-      "_per_page", this.usersPerPage
-    )
-    .set(
-      "_sort", "-debt"
-    );
+      .set(
+        "_per_page", this.usersPerPage
+      )
+      .set(
+        "_sort", "-debt"
+      );
 
-    return this.http.get<UserResponse | undefined>(this.url, {params: params}).pipe(
+    return this.http.get<UserResponse | undefined>(this.url, { params: params }).pipe(
       map(response => {
-        if(!response)
+        if (!response)
           return;
-        if(response.last < page)
+        if (response.last < page)
           return;
         return response.data as User[];
       })
@@ -109,21 +123,25 @@ export class UsersAPI {
     const params = new HttpParams().set(
       "_page", page
     )
-    .set(
-      "_per_page", this.usersPerPage
-    )
-    .set(
-      "_sort", "debt"
-    );
+      .set(
+        "_per_page", this.usersPerPage
+      )
+      .set(
+        "_sort", "debt"
+      );
 
-    return this.http.get<UserResponse | undefined>(this.url, {params: params}).pipe(
+    return this.http.get<UserResponse | undefined>(this.url, { params: params }).pipe(
       map(response => {
-        if(!response)
+        if (!response)
           return;
-        if(response.last < page)
+        if (response.last < page)
           return;
         return response.data as User[];
       })
     );
+  }
+
+  getUserById(id: number) {
+    return this.http.get<User>(`${this.url}/${id}`);
   }
 }

@@ -2,10 +2,11 @@ import { Component, input, signal } from '@angular/core';
 import { User } from '../../model/user';
 import { Status } from '../../model/statuses';
 import { SlicePipe } from '@angular/common';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-user-card',
-  imports: [SlicePipe],
+  imports: [SlicePipe, RouterLink],
   templateUrl: './user-card.component.html',
   styleUrl: './user-card.component.scss',
 })

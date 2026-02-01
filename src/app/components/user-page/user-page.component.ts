@@ -2,6 +2,7 @@ import { Component, effect, inject, input, OnInit, signal } from '@angular/core'
 import { UsersAPI } from '../../services/users-api.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Status } from '../../model/statuses';
+import { User } from '../../model/user';
 
 @Component({
   selector: 'app-user-page',
@@ -21,13 +22,13 @@ export class UserPage implements OnInit {
   statusValues = Object.values(Status) as Status[];
 
   userForm = new FormGroup({
-    name: new FormControl(''),
-    dateOfBirth: new FormControl(new Date()),
-    info: new FormControl(''),
-    status: new FormControl(Status.ACTIVE),
-    debt: new FormControl(0),
-    address: new FormControl(''),
-    contacts: new FormControl('')
+    name: new FormControl('', { nonNullable: true }),
+    dateOfBirth: new FormControl(new Date(), { nonNullable: true }),
+    info: new FormControl('', { nonNullable: true }),
+    status: new FormControl(Status.ACTIVE, { nonNullable: true }),
+    debt: new FormControl(0, { nonNullable: true }),
+    address: new FormControl('', { nonNullable: true }),
+    contacts: new FormControl('', { nonNullable: true })
   })
 
   constructor() {
@@ -61,13 +62,13 @@ export class UserPage implements OnInit {
   }
 
   stringArraytoContacts(contacts: string[] | undefined) {
-    if(!contacts)
+    if (!contacts)
       return;
 
     let message = "";
 
     contacts.forEach((string, index, array) => {
-      if(index < array.length - 1)
+      if (index < array.length - 1)
         message += string + ", ";
       else
         message += string + ".";
@@ -77,5 +78,51 @@ export class UserPage implements OnInit {
 
   enableEditing() {
     this.userForm.enable();
+    this.isDisabled.set(false);
+  }
+
+  buildUser(): User {
+    const dbData = this.user();
+
+    if (!dbData) {
+      throw new Error("User not loaded");
+    }
+    const formData = this.userForm.getRawValue();
+
+    return {
+      ...dbData,
+      ...formData,
+      contacts: this.contactsToArray(formData.contacts),
+      info: [...dbData.info, formData.info]
+    };
+  }
+
+  cancelEditing() {
+    const dbData = this.user();
+
+    if (!dbData) {
+      return;
+    }
+
+    this.userForm.setValue({
+      name: dbData.name,
+      dateOfBirth: dbData.dateOfBirth,
+      info: dbData.info.at(-1) ?? '',
+      status: dbData.status,
+      debt: dbData.debt,
+      address: dbData.address,
+      contacts: this.stringArraytoContacts(dbData.contacts) ?? '',
+    });
+
+    this.userForm.disable();
+    this.isDisabled.set(true);
+  }
+
+  save() {
+    const updatedUser = this.buildUser();
+    this.userService.updateUserQuery(updatedUser);
+
+    this.userForm.disable();
+    this.isDisabled.set(true);
   }
 }

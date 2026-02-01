@@ -16,8 +16,8 @@ export class UsersAPI {
   private url = "http://localhost:3000/users";
 
   private query$ = new Subject<QueryParams>();
-
   private idQuery$ = new Subject<number>();
+  private updateQuery$ = new Subject<User>();
 
   private response$ = this.query$.pipe(
     switchMap(query => {
@@ -40,9 +40,13 @@ export class UsersAPI {
     })
   )
 
-  getByIdResponse = toSignal(this.idResponse$);
+  private updateResponse$ = this.updateQuery$.pipe(
+    switchMap(user => this.updateUser(user))
+  );
 
+  getByIdResponse = toSignal(this.idResponse$);
   getResponse = toSignal(this.response$);
+  updateResponse = toSignal(this.updateResponse$);
 
   usersPerPage: number = 12;
 
@@ -58,6 +62,14 @@ export class UsersAPI {
     }
 
     this.query$.next(params);
+  }
+
+  updateUserQuery(user: User) {
+    this.updateQuery$.next(user);
+  }
+
+  private updateUser(user: User) {
+    return this.http.put<User>(`${this.url}/${user.id}`, user);
   }
 
   getUsersPage(page: number) {

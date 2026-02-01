@@ -1,5 +1,5 @@
 <div class="container">
-    <form class="user-form" [formGroup]="userForm">
+    <form class="user-form" [formGroup]="userForm" (submit)="save()">
         <div class="form-grid">
             <label class="full">
                 <span>Name</span>
@@ -35,10 +35,13 @@
             </label>
         </div>
         <div class="actions">
-            <!-- <button type="button">Cancel</button> -->
-            <!-- <button type="submit">Save</button> -->
-            <button class="edit-button" (click)="enableEditing()">Edit</button>
+            @if(isDisabled()) {
+                <button class="edit-button" type="button" (click)="enableEditing()">Edit</button>
+            }
+            @else {
+                <button type="button" (click)="cancelEditing()">Cancel</button>
+                <button type="submit">Save</button>
+            }
         </div>
     </form>
-
 </div>

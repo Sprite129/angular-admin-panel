@@ -72,7 +72,6 @@ export class UserPage implements OnInit {
       else
         message += string + ".";
     })
-    console.log(message);
     return message;
   }
 

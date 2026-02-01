@@ -1,43 +1,43 @@
 <div class="container">
-    <form class="user-form">
-        <div class="header">
-            <span class="status green">ACTIVE</span>
-            <span class="name">John Doe</span>
-        </div>
+    <form class="user-form" [formGroup]="userForm">
         <div class="form-grid">
+            <label class="full">
+                <span>Name</span>
+                <input type="text" formControlName="name">
+            </label>
             <label>
                 <span>Date of birth</span>
-                <input type="date">
+                <input type="date" formControlName="dateOfBirth">
             </label>
             <label>
                 <span>Debt</span>
-                <input type="number">
+                <input type="number" formControlName="debt">
             </label>
             <label class="full">
                 <span>Address</span>
-                <input type="text">
+                <input type="text" formControlName="address">
             </label>
             <label class="full">
                 <span>Status</span>
-                <select>
-                    <option>ACTIVE</option>
-                    <option>PENDING</option>
-                    <option>BLOCKED</option>
+                <select formControlName="status">
+                    @for (status of statusValues; track $index) {
+                        <option [ngValue]="status">{{status}}</option>
+                    }
                 </select>
             </label>
             <label class="full">
                 <span>Info</span>
-                <textarea rows="4"></textarea>
+                <textarea rows="4" formControlName="info"></textarea>
             </label>
             <label class="full">
                 <span>Contacts</span>
-                <textarea rows="3"></textarea>
+                <textarea rows="3" formControlName="contacts"></textarea>
             </label>
         </div>
         <div class="actions">
             <!-- <button type="button">Cancel</button> -->
             <!-- <button type="submit">Save</button> -->
-            <button class="edit-button">Edit</button>
+            <button class="edit-button" (click)="enableEditing()">Edit</button>
         </div>
     </form>
 

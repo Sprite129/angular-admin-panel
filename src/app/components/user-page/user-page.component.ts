@@ -93,7 +93,7 @@ export class UserPage implements OnInit {
       ...dbData,
       ...formData,
       contacts: this.contactsToArray(formData.contacts),
-      info: [...dbData.info, formData.info]
+      info: formData.info.at(-1) && formData.info.at(-1) != dbData.info.at(-1) ? [...dbData.info, formData.info] : [...dbData.info]
     };
   }
 

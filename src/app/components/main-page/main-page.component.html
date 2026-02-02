@@ -3,6 +3,7 @@
         <input type="text" (input)="onInput($event)">
         <button (click)="onSortByHighest()"><img src="/sort-up.svg"></button>
         <button (click)="onSortByLowest()"><img src="/sort-down.svg"></button>
+        <button ><img src="/new-user.svg" routerLink="user"></button>
     </nav>
     <ul class="users-list">
         @if(!users()) {

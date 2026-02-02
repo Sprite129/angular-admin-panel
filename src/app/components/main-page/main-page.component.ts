@@ -2,10 +2,11 @@ import { Component, effect, ElementRef, inject, signal } from '@angular/core';
 import { UserCard } from "../user-card/user-card.component";
 import { UsersAPI } from '../../services/users-api.service';
 import { SortOptions } from '../../model/sortOptions';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-main-page',
-  imports: [UserCard],
+  imports: [UserCard, RouterLink],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',
 })

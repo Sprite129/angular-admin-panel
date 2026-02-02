@@ -4,5 +4,6 @@ import { UserPage } from './components/user-page/user-page.component';
 
 export const routes: Routes = [
     {path: "", component: MainPage},
+    {path: "user", component: UserPage},
     {path: "user/:id", component: UserPage}
 ];

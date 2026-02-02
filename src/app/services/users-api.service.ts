@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { User } from '../model/user';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { map, Subject, switchMap } from 'rxjs';
+import { map, of, Subject, switchMap } from 'rxjs';
 import { UserResponse } from '../model/response';
 import { QueryParams } from '../model/queryParams';
 import { SortOptions } from '../model/sortOptions';
@@ -16,8 +16,9 @@ export class UsersAPI {
   private url = "http://localhost:3000/users";
 
   private query$ = new Subject<QueryParams>();
-  private idQuery$ = new Subject<number>();
+  private idQuery$ = new Subject<number | null>();
   private updateQuery$ = new Subject<User>();
+  private postQuery$ = new Subject<User>();
 
   private response$ = this.query$.pipe(
     switchMap(query => {
@@ -36,6 +37,10 @@ export class UsersAPI {
 
   private idResponse$ = this.idQuery$.pipe(
     switchMap(id => {
+      if(id == null)
+        // In the process of making this project I realised that it's better to use "null" for empty returns. I may refactor this code in future to resolve this oversight
+        return of(undefined); 
+
       return this.getUserById(id);
     })
   )
@@ -44,14 +49,28 @@ export class UsersAPI {
     switchMap(user => this.updateUser(user))
   );
 
+  private postResponse$ = this.postQuery$.pipe(
+    switchMap(user => {
+      if(user.id)
+        throw new Error("Use updateUserQuery() to update existing user or remove id field to post a new one");
+
+      return this.postUser(user);
+    })
+  );
+
   getByIdResponse = toSignal(this.idResponse$);
   getResponse = toSignal(this.response$);
   updateResponse = toSignal(this.updateResponse$);
+  postResponse = toSignal(this.postQuery$);
 
   usersPerPage: number = 12;
 
   querySetId(id: number) {
     this.idQuery$.next(id);
+  }
+
+  resetByIdResponse() {
+    this.idQuery$.next(null);
   }
 
   querySet(page: number, sortOption?: SortOptions, searchName?: string) {
@@ -68,7 +87,14 @@ export class UsersAPI {
     this.updateQuery$.next(user);
   }
 
+  postUserQuery(user: User) {
+    this.updateQuery$.next(user);
+  }
+
   private updateUser(user: User) {
+    if(user.id == null)
+      throw new Error("Function updateUser() missing id")
+
     return this.http.put<User>(`${this.url}/${user.id}`, user);
   }
 
@@ -155,5 +181,10 @@ export class UsersAPI {
 
   getUserById(id: number) {
     return this.http.get<User>(`${this.url}/${id}`);
+  }
+
+  // We omit ID to let backend generate it
+  postUser(user: Omit<User, "id">) {
+    return this.http.post<User>(this.url, user);
   }
 }

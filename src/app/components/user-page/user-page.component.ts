@@ -1,8 +1,11 @@
-import { Component, effect, inject, input, OnInit, signal } from '@angular/core';
+import { Component, effect, inject, OnInit, signal } from '@angular/core';
 import { UsersAPI } from '../../services/users-api.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Status } from '../../model/statuses';
 import { User } from '../../model/user';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-user-page',
@@ -11,7 +14,11 @@ import { User } from '../../model/user';
   styleUrl: './user-page.component.scss',
 })
 export class UserPage implements OnInit {
-  id = input<number>(0);
+  private route = inject(ActivatedRoute);
+
+  id = toSignal(this.route.paramMap.pipe(
+    map(params => Number(params.get('id')))
+  ), { initialValue: 0 });
   isDisabled = signal<boolean>(false);
 
   userService = inject(UsersAPI);
@@ -35,12 +42,17 @@ export class UserPage implements OnInit {
     effect(() => {
       if (this.id() != 0) {
         this.isDisabled.set(true);
-        this.userForm.disable()
+        this.userForm.disable();
+      }
+      else {
+        this.isDisabled.set(false);
+        this.userForm.enable();
+        this.userService.resetByIdResponse();
       }
     });
 
     effect(() => {
-      if (this.user())
+      if (this.user()) {
         this.userForm.setValue({
           name: this.user()?.name ?? "",
           dateOfBirth: this.user()?.dateOfBirth ?? new Date(),
@@ -50,11 +62,24 @@ export class UserPage implements OnInit {
           address: this.user()?.address ?? "",
           contacts: this.stringArraytoContacts(this.user()?.contacts) ?? ""
         });
+      }
+      else {
+        this.userForm.setValue({
+          name: "",
+          dateOfBirth: new Date(),
+          info: "",
+          status: Status.ACTIVE,
+          debt: 0,
+          address: "",
+          contacts: ""
+        });
+      }
     });
   }
 
   ngOnInit(): void {
-    this.userService.querySetId(this.id());
+    if(this.id() != 0)
+      this.userService.querySetId(this.id());
   }
 
   contactsToArray(contacts: string) {

@@ -36,11 +36,14 @@
         </div>
         <div class="actions">
             @if(isDisabled()) {
-                <button class="edit-button" type="button" (click)="enableEditing()">Edit</button>
+                <button class="middle-button" type="button" (click)="enableEditing()">Edit</button>
             }
-            @else {
+            @else if(id() != 0){
                 <button type="button" (click)="cancelEditing()">Cancel</button>
                 <button type="submit">Save</button>
+            }
+            @else {
+                <button class="middle-button" type="submit">Save</button>
             }
         </div>
     </form>

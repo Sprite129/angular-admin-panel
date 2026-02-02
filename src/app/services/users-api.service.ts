@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { User } from '../model/user';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { map, of, Subject, switchMap } from 'rxjs';
+import { map, of, Subject, switchMap, tap } from 'rxjs';
 import { UserResponse } from '../model/response';
 import { QueryParams } from '../model/queryParams';
 import { SortOptions } from '../model/sortOptions';
@@ -18,7 +18,7 @@ export class UsersAPI {
   private query$ = new Subject<QueryParams>();
   private idQuery$ = new Subject<number | null>();
   private updateQuery$ = new Subject<User>();
-  private postQuery$ = new Subject<User>();
+  private postQuery$ = new Subject<Omit<User, "id">>();
 
   private response$ = this.query$.pipe(
     switchMap(query => {
@@ -51,9 +51,6 @@ export class UsersAPI {
 
   private postResponse$ = this.postQuery$.pipe(
     switchMap(user => {
-      if(user.id)
-        throw new Error("Use updateUserQuery() to update existing user or remove id field to post a new one");
-
       return this.postUser(user);
     })
   );
@@ -61,7 +58,7 @@ export class UsersAPI {
   getByIdResponse = toSignal(this.idResponse$);
   getResponse = toSignal(this.response$);
   updateResponse = toSignal(this.updateResponse$);
-  postResponse = toSignal(this.postQuery$);
+  postResponse = toSignal(this.postResponse$);
 
   usersPerPage: number = 12;
 
@@ -87,8 +84,8 @@ export class UsersAPI {
     this.updateQuery$.next(user);
   }
 
-  postUserQuery(user: User) {
-    this.updateQuery$.next(user);
+  postUserQuery(user: Omit<User, "id">) {
+    this.postQuery$.next(user);
   }
 
   private updateUser(user: User) {
@@ -98,7 +95,7 @@ export class UsersAPI {
     return this.http.put<User>(`${this.url}/${user.id}`, user);
   }
 
-  getUsersPage(page: number) {
+  private getUsersPage(page: number) {
     const params = new HttpParams().set(
       "_page", page
     ).set(
@@ -116,7 +113,7 @@ export class UsersAPI {
     );
   }
 
-  getByName(name: string, page: number) {
+  private getByName(name: string, page: number) {
     const params = new HttpParams().set("_sort", "-name")
 
     // I can't write a backend right now, so I'll filter by the whole database
@@ -135,7 +132,7 @@ export class UsersAPI {
     )
   }
 
-  getUserPageToLowDebt(page: number) {
+  private getUserPageToLowDebt(page: number) {
     const params = new HttpParams().set(
       "_page", page
     )
@@ -157,7 +154,7 @@ export class UsersAPI {
     );
   }
 
-  getUserPageToHighDebt(page: number) {
+  private getUserPageToHighDebt(page: number) {
     const params = new HttpParams().set(
       "_page", page
     )
@@ -179,12 +176,29 @@ export class UsersAPI {
     );
   }
 
-  getUserById(id: number) {
+  private getUserById(id: number) {
     return this.http.get<User>(`${this.url}/${id}`);
   }
 
   // We omit ID to let backend generate it
-  postUser(user: Omit<User, "id">) {
-    return this.http.post<User>(this.url, user);
+  private postUser(user: Omit<User, "id">) {
+    const params = new HttpParams()
+    .set("_sort", "-id")
+
+    return this.http.get<User[]>(this.url, {params: params}).pipe(
+      map(users => {
+        const sortedUsers = users.sort((a, b) => {
+          const idA = Number(a.id);
+          const idB = Number(b.id);
+
+          return idB - idA;
+        })
+        return sortedUsers[0].id ?? 1;
+      }),
+      switchMap(lastId => {
+        const newId = lastId + 1;
+        return this.http.post(this.url, {...user, id: newId});
+      })
+    )
   }
 }

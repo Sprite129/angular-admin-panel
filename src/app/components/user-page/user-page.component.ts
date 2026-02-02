@@ -40,6 +40,7 @@ export class UserPage implements OnInit {
 
   constructor() {
     effect(() => {
+      // For future me: come up with some kind of state change instead of using magic number 0. I'm rushing, so I can't do it right now
       if (this.id() != 0) {
         this.isDisabled.set(true);
         this.userForm.disable();
@@ -122,6 +123,16 @@ export class UserPage implements OnInit {
     };
   }
 
+  buildNewUser(): User {
+    const formData = this.userForm.getRawValue();
+
+    return {
+      ...formData,
+      info: [formData.info] as string[],
+      contacts: this.contactsToArray(formData.contacts),
+    }
+  }
+
   cancelEditing() {
     const dbData = this.user();
 
@@ -144,8 +155,14 @@ export class UserPage implements OnInit {
   }
 
   save() {
-    const updatedUser = this.buildUser();
-    this.userService.updateUserQuery(updatedUser);
+    if(this.id() != 0) {
+      const updatedUser = this.buildUser();
+      this.userService.updateUserQuery(updatedUser);
+    }
+    else {
+      const newUser = this.buildNewUser();
+      this.userService.postUserQuery(newUser);
+    }
 
     this.userForm.disable();
     this.isDisabled.set(true);

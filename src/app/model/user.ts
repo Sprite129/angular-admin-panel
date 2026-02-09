@@ -1,7 +1,7 @@
 import { Status } from "./statuses";
 
 export interface User {
-    id?: number,
+    id: string,
     name: string,
     dateOfBirth: Date,
     info: string[],

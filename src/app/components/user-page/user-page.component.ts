@@ -13,12 +13,12 @@ import { map } from 'rxjs';
   templateUrl: './user-page.component.html',
   styleUrl: './user-page.component.scss',
 })
-export class UserPage implements OnInit {
+export class UserPage {
   private route = inject(ActivatedRoute);
 
   id = toSignal(this.route.paramMap.pipe(
-    map(params => Number(params.get('id')))
-  ), { initialValue: 0 });
+    map(params => params.get('id'))
+  ), { initialValue: null });
   isDisabled = signal<boolean>(false);
 
   userService = inject(UsersAPI);
@@ -40,10 +40,12 @@ export class UserPage implements OnInit {
 
   constructor() {
     effect(() => {
-      // For future me: come up with some kind of state change instead of using magic number 0. I'm rushing, so I can't do it right now
-      if (this.id() != 0) {
+      if (this.id()) {
+        const id = this.id() ?? "0";
+
         this.isDisabled.set(true);
         this.userForm.disable();
+        this.userService.querySetId(id);
       }
       else {
         this.isDisabled.set(false);
@@ -78,10 +80,13 @@ export class UserPage implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    if(this.id() != 0)
-      this.userService.querySetId(this.id());
-  }
+  // ngOnInit(): void {
+  //   if(this.id()) {
+  //     const id = this.id() ?? "0";
+
+  //     this.userService.querySetId(id);
+  //   }
+  // }
 
   contactsToArray(contacts: string) {
     return contacts.split(", ");
@@ -123,7 +128,7 @@ export class UserPage implements OnInit {
     };
   }
 
-  buildNewUser(): User {
+  buildNewUser(): Omit<User, "id"> {
     const formData = this.userForm.getRawValue();
 
     return {
@@ -155,7 +160,7 @@ export class UserPage implements OnInit {
   }
 
   save() {
-    if(this.id() != 0) {
+    if(this.id()) {
       const updatedUser = this.buildUser();
       this.userService.updateUserQuery(updatedUser);
     }

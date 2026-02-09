@@ -38,7 +38,7 @@
             @if(isDisabled()) {
                 <button class="middle-button" type="button" (click)="enableEditing()">Edit</button>
             }
-            @else if(id() != 0){
+            @else if(id()){
                 <button type="button" (click)="cancelEditing()">Cancel</button>
                 <button type="submit">Save</button>
             }

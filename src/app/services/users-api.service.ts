@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { User } from '../model/user';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { map, of, Subject, switchMap, tap } from 'rxjs';
+import { map, of, Subject, switchMap } from 'rxjs';
 import { UserResponse } from '../model/response';
 import { QueryParams } from '../model/queryParams';
 import { SortOptions } from '../model/sortOptions';
@@ -16,7 +16,7 @@ export class UsersAPI {
   private url = "http://localhost:3000/users";
 
   private query$ = new Subject<QueryParams>();
-  private idQuery$ = new Subject<number | null>();
+  private idQuery$ = new Subject<string | null>();
   private updateQuery$ = new Subject<User>();
   private postQuery$ = new Subject<Omit<User, "id">>();
 
@@ -62,7 +62,7 @@ export class UsersAPI {
 
   usersPerPage: number = 12;
 
-  querySetId(id: number) {
+  querySetId(id: string) {
     this.idQuery$.next(id);
   }
 
@@ -89,9 +89,6 @@ export class UsersAPI {
   }
 
   private updateUser(user: User) {
-    if(user.id == null)
-      throw new Error("Function updateUser() missing id")
-
     return this.http.put<User>(`${this.url}/${user.id}`, user);
   }
 
@@ -176,29 +173,12 @@ export class UsersAPI {
     );
   }
 
-  private getUserById(id: number) {
+  private getUserById(id: string) {
     return this.http.get<User>(`${this.url}/${id}`);
   }
 
   // We omit ID to let backend generate it
   private postUser(user: Omit<User, "id">) {
-    const params = new HttpParams()
-    .set("_sort", "-id")
-
-    return this.http.get<User[]>(this.url, {params: params}).pipe(
-      map(users => {
-        const sortedUsers = users.sort((a, b) => {
-          const idA = Number(a.id);
-          const idB = Number(b.id);
-
-          return idB - idA;
-        })
-        return sortedUsers[0].id ?? 1;
-      }),
-      switchMap(lastId => {
-        const newId = lastId + 1;
-        return this.http.post(this.url, {...user, id: newId});
-      })
-    )
+    return this.http.post<User>(this.url, user);
   }
 }

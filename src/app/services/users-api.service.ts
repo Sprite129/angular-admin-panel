@@ -119,7 +119,11 @@ export class UsersAPI {
       map(users => {
         if (!users)
           return;
-        const usersContainName = users.filter(user => user.name.includes(name))
+        const usersContainName = users.filter(user => {
+          const nameNoCase = user.name.toLowerCase();
+
+          return nameNoCase.includes(name.toLowerCase());
+        })
         const arrayPage = (page - 1) * this.usersPerPage;
         const returnedUsersArray = usersContainName.slice(arrayPage, arrayPage + this.usersPerPage)
         if (!returnedUsersArray.length)

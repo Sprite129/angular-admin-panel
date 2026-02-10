@@ -7,7 +7,7 @@
     </nav>
     <ul class="users-list">
         @if(!users()) {
-            <li>No users was found</li>
+            <li class="no-info">No users was found</li>
         }
         @else {
             @for (user of users(); track user.id) {

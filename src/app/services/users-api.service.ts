@@ -18,7 +18,7 @@ export class UsersAPI {
   private query$ = new Subject<QueryParams>();
   private idQuery$ = new Subject<string | null>();
   private updateQuery$ = new Subject<User>();
-  private postQuery$ = new Subject<Omit<User, "id">>();
+  private postQuery$ = new Subject<Omit<User, "id"> | null>();
 
   private response$ = this.query$.pipe(
     switchMap(query => {
@@ -51,6 +51,9 @@ export class UsersAPI {
 
   private postResponse$ = this.postQuery$.pipe(
     switchMap(user => {
+      if(user == null)
+        return of(undefined);
+
       return this.postUser(user);
     })
   );
@@ -68,6 +71,10 @@ export class UsersAPI {
 
   resetByIdResponse() {
     this.idQuery$.next(null);
+  }
+
+  resetPostResponse() {
+    this.postQuery$.next(null);
   }
 
   querySet(page: number, sortOption?: SortOptions, searchName?: string) {

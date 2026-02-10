@@ -1,10 +1,10 @@
-import { Component, effect, inject, OnInit, signal } from '@angular/core';
+import { Component, effect, inject, OnDestroy, signal } from '@angular/core';
 import { UsersAPI } from '../../services/users-api.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Status } from '../../model/statuses';
 import { User } from '../../model/user';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs';
 
 @Component({
@@ -13,18 +13,19 @@ import { map } from 'rxjs';
   templateUrl: './user-page.component.html',
   styleUrl: './user-page.component.scss',
 })
-export class UserPage {
-  private route = inject(ActivatedRoute);
+export class UserPage implements OnDestroy{
+  private router = inject(Router);
 
+  private route = inject(ActivatedRoute);
   id = toSignal(this.route.paramMap.pipe(
     map(params => params.get('id'))
   ), { initialValue: null });
+
+  private userService = inject(UsersAPI);
+  private user = this.userService.getByIdResponse;
+  private postResponse = this.userService.postResponse;
+  
   isDisabled = signal<boolean>(false);
-
-  userService = inject(UsersAPI);
-
-  user = this.userService.getByIdResponse;
-
   Status = Status;
   statusValues = Object.values(Status) as Status[];
 
@@ -78,6 +79,14 @@ export class UserPage {
         });
       }
     });
+
+    effect(() => {
+      const newId = this.postResponse()?.id;
+
+      if(newId) {
+        this.router.navigate(['/user', newId]);
+      }
+    })
   }
 
   contactsToArray(contacts: string) {
@@ -144,7 +153,7 @@ export class UserPage {
   }
 
   save() {
-    if(this.id()) {
+    if (this.id()) {
       const updatedUser = this.buildUser();
       this.userService.updateUserQuery(updatedUser);
     }
@@ -155,5 +164,10 @@ export class UserPage {
 
     this.userForm.disable();
     this.isDisabled.set(true);
+  }
+
+  ngOnDestroy() {
+    if(this.postResponse())
+      this.userService.resetPostResponse();
   }
 }

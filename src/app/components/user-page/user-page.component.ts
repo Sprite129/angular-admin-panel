@@ -80,14 +80,6 @@ export class UserPage {
     });
   }
 
-  // ngOnInit(): void {
-  //   if(this.id()) {
-  //     const id = this.id() ?? "0";
-
-  //     this.userService.querySetId(id);
-  //   }
-  // }
-
   contactsToArray(contacts: string) {
     return contacts.split(", ");
   }
@@ -96,15 +88,7 @@ export class UserPage {
     if (!contacts)
       return;
 
-    let message = "";
-
-    contacts.forEach((string, index, array) => {
-      if (index < array.length - 1)
-        message += string + ", ";
-      else
-        message += string + ".";
-    })
-    return message;
+    return contacts.join(", ");
   }
 
   enableEditing() {
@@ -124,7 +108,7 @@ export class UserPage {
       ...dbData,
       ...formData,
       contacts: this.contactsToArray(formData.contacts),
-      info: formData.info.at(-1) && formData.info.at(-1) != dbData.info.at(-1) ? [...dbData.info, formData.info] : [...dbData.info]
+      info: formData.info && formData.info != dbData.info.at(-1) ? [...dbData.info, formData.info] : [...dbData.info]
     };
   }
 

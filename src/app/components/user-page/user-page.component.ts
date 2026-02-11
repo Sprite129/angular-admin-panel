@@ -6,10 +6,11 @@ import { User } from '../../model/user';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { map } from 'rxjs';
+import { ConfirmationMessage } from "../confirmation-message/confirmation-message.component";
 
 @Component({
   selector: 'app-user-page',
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, ConfirmationMessage],
   templateUrl: './user-page.component.html',
   styleUrl: './user-page.component.scss',
 })
@@ -24,8 +25,10 @@ export class UserPage implements OnDestroy{
   private userService = inject(UsersAPI);
   private user = this.userService.getByIdResponse;
   private postResponse = this.userService.postResponse;
+  private deleteResponse = this.userService.deleteResponse;
   
   isDisabled = signal<boolean>(false);
+  isConfirmationMsg = signal(false);
   Status = Status;
   statusValues = Object.values(Status) as Status[];
 
@@ -85,6 +88,14 @@ export class UserPage implements OnDestroy{
 
       if(newId) {
         this.router.navigate(['/user', newId]);
+      }
+    })
+
+    effect(() => {
+      if(this.deleteResponse()) {
+        this.userService.resetDeleteResponse();
+
+        this.router.navigate(['']);
       }
     })
   }
@@ -164,6 +175,24 @@ export class UserPage implements OnDestroy{
 
     this.userForm.disable();
     this.isDisabled.set(true);
+  }
+
+  showConfirmationMessage() {
+    this.isConfirmationMsg.set(true);
+  }
+
+  hideConfirmationMessage() {
+    this.isConfirmationMsg.set(false);
+  }
+
+  deleteUserHandler(isConfirmed: boolean) {
+    if(isConfirmed) {
+      const id = this.id() ?? "0";
+  
+      this.userService.deleteUserQuery(id);
+    }
+    
+    this.hideConfirmationMessage();
   }
 
   ngOnDestroy() {

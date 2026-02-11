@@ -1,0 +1,32 @@
+.message-container {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    width: min(80%, 700px);
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 25px;
+    padding: 10px;
+    box-sizing: border-box;
+    opacity: 0;
+    background-color: rgb(163, 17, 17);
+    border-left: 3px solid rgb(80, 0, 0);
+    border-right: 3px solid rgb(80, 0, 0);
+    transition: transform 0.5s cubic-bezier(.56, -0.29, .44, 1.29), opacity 0.7s ease-in-out;
+
+    p {
+        text-align: center;
+    }
+
+    .button-container {
+        justify-self: center;
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+    }
+}
+
+.is-visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}

@@ -1,3 +1,5 @@
+<app-confirmation-message [isShown]="isConfirmationMsg()" [message]="'Do you really want to delete this user?'" (confirm)="deleteUserHandler($event)"/>
+
 <div class="container">
     <div class="escape-container">
         <button routerLink="">
@@ -46,6 +48,7 @@
             @else if(id()){
                 <button type="button" (click)="cancelEditing()">Cancel</button>
                 <button type="submit">Save</button>
+                <button type="button" (click)="showConfirmationMessage()">Delete</button>
             }
             @else {
                 <button class="middle-button" type="submit">Save</button>

@@ -1,0 +1,7 @@
+<div class="message-container" [class.is-visible]="isShown()">
+    <p>{{message()}}</p>
+    <div class="button-container">
+        <button (click)="confirm.emit(true)">Confirm</button>
+        <button (click)="confirm.emit(false)">Cancel</button>
+    </div>
+</div>

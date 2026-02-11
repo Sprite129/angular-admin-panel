@@ -19,6 +19,7 @@ export class UsersAPI {
   private idQuery$ = new Subject<string | null>();
   private updateQuery$ = new Subject<User>();
   private postQuery$ = new Subject<Omit<User, "id"> | null>();
+  private deleteQuery$ = new Subject<string | null>();
 
   private response$ = this.query$.pipe(
     switchMap(query => {
@@ -58,10 +59,20 @@ export class UsersAPI {
     })
   );
 
+  private deleteResponse$ = this.deleteQuery$.pipe(
+    switchMap(id => {
+      if(id == null)
+        return of(undefined);
+
+      return this.deleteUser(id);
+    })
+  )
+
   getByIdResponse = toSignal(this.idResponse$);
   getResponse = toSignal(this.response$);
   updateResponse = toSignal(this.updateResponse$);
   postResponse = toSignal(this.postResponse$);
+  deleteResponse = toSignal(this.deleteResponse$);
 
   usersPerPage: number = 12;
 
@@ -75,6 +86,10 @@ export class UsersAPI {
 
   resetPostResponse() {
     this.postQuery$.next(null);
+  }
+
+  resetDeleteResponse() {
+    this.deleteQuery$.next(null);
   }
 
   querySet(page: number, sortOption?: SortOptions, searchName?: string) {
@@ -93,6 +108,10 @@ export class UsersAPI {
 
   postUserQuery(user: Omit<User, "id">) {
     this.postQuery$.next(user);
+  }
+
+  deleteUserQuery(id: string) {
+    this.deleteQuery$.next(id);
   }
 
   private updateUser(user: User) {
@@ -191,5 +210,9 @@ export class UsersAPI {
   // We omit ID to let backend generate it
   private postUser(user: Omit<User, "id">) {
     return this.http.post<User>(this.url, user);
+  }
+
+  private deleteUser(id: string) {
+    return this.http.delete<User>(`${this.url}/${id}`);
   }
 }

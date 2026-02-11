@@ -1,43 +1,48 @@
-.escape-container {
-  button {
-    justify-items: center;
-    align-items: center;
-    padding: 3px;
+.container {
+  margin: 0 auto;
+  max-width: 1920px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 35px;
 
-    img {
-      display: block;
-      max-width: 25px;
-      transform: scaleX(-1);
+  .escape-container {
+    padding: 10px;
+
+    button {
+      justify-items: center;
+      align-items: center;
+      padding: 3px;
+
+      img {
+        display: block;
+        max-width: 25px;
+        transform: scaleX(-1);
+      }
     }
   }
 }
 
-.container {
-  margin: 0 auto;
-  max-width: 1920px;
-}
-
 .user-form {
-  max-width: 700px;
+  justify-self: center;
+  width: min(90%, 700px);
   box-sizing: border-box;
-  margin: 20px auto;
-  padding: 25px;
+  padding: min(3%, 25px);
   border-radius: 25px;
   box-shadow: 0px 5px 20px black;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 1fr auto;
   gap: 15px;
 }
 
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 10px;
 
   label {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 5px;
 
     input,
     textarea,
@@ -58,7 +63,6 @@
 .actions {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
 
   button {
     width: 45%;

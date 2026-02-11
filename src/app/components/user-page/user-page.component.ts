@@ -4,12 +4,12 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Status } from '../../model/statuses';
 import { User } from '../../model/user';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { map } from 'rxjs';
 
 @Component({
   selector: 'app-user-page',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './user-page.component.html',
   styleUrl: './user-page.component.scss',
 })

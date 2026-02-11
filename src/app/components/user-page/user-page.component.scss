@@ -1,6 +1,20 @@
+.escape-container {
+  button {
+    justify-items: center;
+    align-items: center;
+    padding: 3px;
+
+    img {
+      display: block;
+      max-width: 25px;
+      transform: scaleX(-1);
+    }
+  }
+}
+
 .container {
-    margin: 0 auto;
-    max-width: 1920px;
+  margin: 0 auto;
+  max-width: 1920px;
 }
 
 .user-form {
@@ -25,7 +39,9 @@
     flex-direction: column;
     gap: 8px;
 
-    input, textarea, select {
+    input,
+    textarea,
+    select {
       padding: 2%;
     }
 
@@ -54,6 +70,14 @@
   }
 }
 
-.green { background: green; }
-.orange { background: orange; }
-.red { background: red; }
+.green {
+  background: green;
+}
+
+.orange {
+  background: orange;
+}
+
+.red {
+  background: red;
+}
